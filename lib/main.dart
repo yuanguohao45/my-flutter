@@ -10,7 +10,21 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
         home: Scaffold(
-            appBar: AppBar(title: Text('my-flutter')), body: HomeContent()));
+            appBar: AppBar(title: Text('app-title')), body: HomeContent()));
+  }
+}
+
+class MyBtn extends StatelessWidget {
+  final String text;
+  const MyBtn(this.text, {Key key}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return RaisedButton(
+      child: Text(this.text),
+      textColor: Theme.of(context).accentColor,
+      onPressed: () {},
+    );
   }
 }
 
@@ -19,42 +33,195 @@ class HomeContent extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Column(children: <Widget>[
-      // Container(height: 200.0, color: Colors.black, child: Text('你好，flutter')),
-      Row(children: <Widget>[
-        Expanded(
-            child: Container(
-                height: 200.0, color: Colors.black, child: Text('你好,flutter')))
-      ]),
-      SizedBox(height: 10),
-      Row(children: <Widget>[
-        Expanded(
-            flex: 2,
-            child: Container(
-                height: 200.0,
-                child: Image.network(
-                    "https://ss0.bdstatic.com/70cFvHSh_Q1YnxGkpoWK1HF6hhy/it/u=3915520305,2241280807&fm=26&gp=0.jpg",
-                    fit: BoxFit.cover))),
-        SizedBox(width: 10),
-        Expanded(
-            flex: 1,
-            child: Container(
-                height: 200.0,
-                child: ListView(children: <Widget>[
-                  Container(
-                      height: 95.0,
-                      child: Image.network(
-                          "https://ss1.bdstatic.com/70cFuXSh_Q1YnxGkpoWK1HF6hhy/it/u=1035415831,1465727770&fm=26&gp=0.jpg",
-                          fit: BoxFit.cover)),
-                  SizedBox(height: 10),
-                  Container(
-                      height: 95.0,
-                      child: Image.network(
-                          "https://ss1.bdstatic.com/70cFuXSh_Q1YnxGkpoWK1HF6hhy/it/u=1035415831,1465727770&fm=26&gp=0.jpg",
-                          fit: BoxFit.cover))
-                ])))
-      ])
-    ]);
+    return Container(
+      height: 600,
+      width: 400,
+      color: Colors.pink,
+      child: Wrap(
+        spacing: 10,
+        runSpacing: 10,
+        runAlignment: WrapAlignment.spaceAround,
+        direction: Axis.vertical,
+        children: <Widget>[
+          MyBtn('第一季adasd'),
+          MyBtn('第一季'),
+          MyBtn('第一季asdasdasda'),
+          MyBtn('第一季'),
+          MyBtn('第一季sda'),
+          MyBtn('第一季dasdas'),
+          MyBtn('第一季'),
+          MyBtn('第一dasdadas季'),
+          MyBtn('第一季'),
+          MyBtn('第一dsa季'),
+          MyBtn('第一dasdsadadas季'),
+          MyBtn('第一季'),
+          MyBtn('第一季'),
+          MyBtn('第一季'),
+        ],
+      ),
+    );
+
+    // List<Widget> _getData() {
+    //   return listData
+    //       .map((value) => Card(
+    //           margin: EdgeInsets.all(10),
+    //           child: Column(children: <Widget>[
+    //             AspectRatio(
+    //               aspectRatio: 20 / 9,
+    //               child: Image.network(
+    //                 value["imageUrl"],
+    //                 fit: BoxFit.cover,
+    //               ),
+    //             ),
+    //             ListTile(
+    //               leading: CircleAvatar(
+    //                 backgroundImage: NetworkImage(value["imageUrl"]),
+    //               ),
+    //               title: Text(value["title"]),
+    //               subtitle: Text(
+    //                 value["autor"],
+    //                 maxLines: 2,
+    //                 overflow: TextOverflow.ellipsis,
+    //               ),
+    //             )
+    //           ])))
+    //       .toList();
+    // }
+
+    // @override
+    // Widget build(BuildContext context) {
+    //   return ListView(children: this._getData());
+
+    // return ListView(children: <Widget>[
+    // Card(
+    //   margin: EdgeInsets.all(10),
+    //   child: Column(
+    //     children: <Widget>[
+    //       ListTile(
+    //           title: Text("张三", style: TextStyle(fontSize: 28)),
+    //           subtitle: Text("高级工程师")),
+    //       ListTile(title: Text("电话：xxx")),
+    //       ListTile(title: Text("地址：xxx")),
+    //     ],
+    //   ),
+    // ),
+    //   Card(
+    //     margin: EdgeInsets.all(10),
+    //     child: Column(
+    //       children: <Widget>[
+    //         ListTile(
+    //             title: Text("张三", style: TextStyle(fontSize: 28)),
+    //             subtitle: Text("高级工程师")),
+    //         ListTile(title: Text("电话：xxx")),
+    //         ListTile(title: Text("地址：xxx")),
+    //       ],
+    //     ),
+    //   ),
+    //   Card(
+    //     margin: EdgeInsets.all(10),
+    //     child: Column(
+    //       children: <Widget>[
+    //         ListTile(
+    //             title: Text("张三", style: TextStyle(fontSize: 28)),
+    //             subtitle: Text("高级工程师")),
+    //         ListTile(title: Text("电话：xxx")),
+    //         ListTile(title: Text("地址：xxx")),
+    //       ],
+    //     ),
+    //   ),
+    //   Card(
+    //     margin: EdgeInsets.all(10),
+    //     child: Column(
+    //       children: <Widget>[
+    //         ListTile(
+    //             title: Text("张三", style: TextStyle(fontSize: 28)),
+    //             subtitle: Text("高级工程师")),
+    //         ListTile(title: Text("电话：xxx")),
+    //         ListTile(title: Text("地址：xxx")),
+    //       ],
+    //     ),
+    //   ),
+    // ]);
+
+    // return AspectRatio(
+    //     aspectRatio: 2.0 / 1.0,
+    //     child: Container(
+    //       color: Colors.red,
+    //     ));
+
+    // return Center(
+    //   child: Container(
+    //     height: 400.0,
+    //     width: 300.0,
+    //     color: Colors.red,
+    //     child: Stack(
+    //       alignment: Alignment.center,
+    //       children: <Widget>[
+    //         Image.network(
+    //             "https://ss0.bdstatic.com/70cFvHSh_Q1YnxGkpoWK1HF6hhy/it/u=3915520305,2241280807&fm=26&gp=0.jpg"),
+    //         Positioned(
+    //             left: 10.0,
+    //             child: Icon(Icons.home, size: 40.0, color: Colors.blue)),
+    //         Positioned(
+    //             left: 100.0,
+    //             child: Icon(Icons.search, size: 40.0, color: Colors.purple)),
+    //         Positioned(
+    //             right: 0.0,
+    //             child:
+    //                 Icon(Icons.select_all, size: 40.0, color: Colors.orange)),
+    //       ],
+    //       // children: <Widget>[
+    //       //   Align(
+    //       //       alignment: Alignment.topCenter,
+    //       //       child: Icon(Icons.home, size: 40.0, color: Colors.blue)),
+    //       //   Align(
+    //       //       alignment: Alignment.bottomCenter,
+    //       //       child: Icon(Icons.search, size: 40.0, color: Colors.purple)),
+    //       //   Align(
+    //       //       alignment: Alignment.centerLeft,
+    //       //       child:
+    //       //           Icon(Icons.select_all, size: 40.0, color: Colors.orange)),
+    //       // ],
+    //     ),
+    //   ),
+    // );
+
+    // return Column(children: <Widget>[
+    //   // Container(height: 200.0, color: Colors.black, child: Text('你好，flutter')),
+    //   Row(children: <Widget>[
+    //     Expanded(
+    //         child: Container(
+    //             height: 200.0, color: Colors.black, child: Text('你好,flutter')))
+    //   ]),
+    //   SizedBox(height: 10),
+    //   Row(children: <Widget>[
+    //     Expanded(
+    //         flex: 2,
+    //         child: Container(
+    //             height: 200.0,
+    //             child: Image.network(
+    //                 "https://ss0.bdstatic.com/70cFvHSh_Q1YnxGkpoWK1HF6hhy/it/u=3915520305,2241280807&fm=26&gp=0.jpg",
+    //                 fit: BoxFit.cover))),
+    //     SizedBox(width: 10),
+    //     Expanded(
+    //         flex: 1,
+    //         child: Container(
+    //             height: 200.0,
+    //             child: ListView(children: <Widget>[
+    //               Container(
+    //                   height: 95.0,
+    //                   child: Image.network(
+    //                       "https://ss1.bdstatic.com/70cFuXSh_Q1YnxGkpoWK1HF6hhy/it/u=1035415831,1465727770&fm=26&gp=0.jpg",
+    //                       fit: BoxFit.cover)),
+    //               SizedBox(height: 10),
+    //               Container(
+    //                   height: 95.0,
+    //                   child: Image.network(
+    //                       "https://ss1.bdstatic.com/70cFuXSh_Q1YnxGkpoWK1HF6hhy/it/u=1035415831,1465727770&fm=26&gp=0.jpg",
+    //                       fit: BoxFit.cover))
+    //             ])))
+    //   ])
+    // ]);
 
     // return Row(
     //     mainAxisAlignment: MainAxisAlignment.start,
