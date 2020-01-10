@@ -9,7 +9,7 @@ List listData = [
     "title": 'Candy Shop',
     "autor": 'Mohamed Chahin',
     "imageUrl":
-        'https://ss0.bdstatic.com/70cFuHSh_Q1YnxGkpoWK1HF6hhy/it/u=2348957240,2361878970&fm=26&gp=0.jpg'
+        'https://ss0.bdstatic.com/70cFvHSh_Q1YnxGkpoWK1HF6hhy/it/u=3915520305,2241280807&fm=26&gp=0.jpg'
   },
   {
     "title": 'Candy Shop',
@@ -21,7 +21,7 @@ List listData = [
     "title": 'Candy Shop',
     "autor": 'Mohamed Chahin',
     "imageUrl":
-        'https://ss0.bdstatic.com/70cFvHSh_Q1YnxGkpoWK1HF6hhy/it/u=3915520305,2241280807&fm=26&gp=0.jpg'
+        'https://ss1.bdstatic.com/70cFvXSh_Q1YnxGkpoWK1HF6hhy/it/u=3560657873,1092655386&fm=26&gp=0.jpg'
   },
   {
     "title": 'Candy Shop',
