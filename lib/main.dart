@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import 'res/listData.dart';
+
 void main() => runApp(MyApp());
 
 class MyApp extends StatelessWidget {
@@ -14,41 +16,49 @@ class MyApp extends StatelessWidget {
 
 class HomeContent extends StatelessWidget {
   const HomeContent({Key key}) : super(key: key);
+  // 自定义方法
+  // List<Widget> _getData() {
+  // List<Widget> list = new List();
+  // for (var i = 0; i < 20; i++) {
+  //   list.add(ListTile(
+  //     title: Text('我是$i列表'),
+  //   ));
+  // }
+  // return list;
+
+  // var tempList = listData.map((value) => ListTile(
+  //       leading: Image.network(
+  //         value["imageUrl"],
+  //         width: 80,
+  //         fit: BoxFit.cover,
+  //       ),
+  //       title: Text(value["title"]),
+  //       subtitle: Text(value["autor"]),
+  //     ));
+
+  // return tempList.toList();
+  // }
+  Widget _getData(context, index) {
+    return ListTile(
+        leading: Image.network(
+          listData[index]["imageUrl"],
+          width: 60,
+          fit: BoxFit.cover,
+        ),
+        title: Text(listData[index]["title"]),
+        subtitle: Text(listData[index]["autor"]));
+  }
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-        height: 180.0,
-        child: ListView(
-          padding: EdgeInsets.all(10),
-          scrollDirection: Axis.horizontal,
-          children: <Widget>[
-            Container(
-              width: 180.0,
-              // height: 180.0,
-              color: Colors.red,
-            ),
-            Container(
-              width: 180.0,
-              // height: 180.0,
-              color: Colors.blue,
-              child: ListView(children: <Widget>[
-                Image.network(
-                    "https://ss1.bdstatic.com/70cFuXSh_Q1YnxGkpoWK1HF6hhy/it/u=2863118477,1978106776&fm=26&gp=0.jpg"),
-                Text("我是一个文本")
-              ]),
-            ),
-            Container(
-              width: 180.0,
-              // height: 180.0,
-              color: Colors.pink,
-            ),
-            Container(
-              width: 180.0,
-              // height: 180.0,
-              color: Colors.purple,
-            ),
-          ],
-        ));
+    // return Container(
+    //     child: ListView(
+    //   padding: EdgeInsets.all(10),
+    //   children: this._getData(),
+    // ));
+
+    return ListView.builder(
+        itemCount: listData.length,
+        itemBuilder: (context, index) => this._getData(context, index));
   }
 }
