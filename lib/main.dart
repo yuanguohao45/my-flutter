@@ -10,7 +10,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
         home: Scaffold(
-            appBar: AppBar(title: Text('app-title')), body: HomeContent()));
+            appBar: AppBar(title: Text('app-title')), body: HomePage()));
   }
 }
 
@@ -28,38 +28,95 @@ class MyBtn extends StatelessWidget {
   }
 }
 
+class HomePage extends StatefulWidget {
+  HomePage({Key key}) : super(key: key);
+
+  @override
+  _HomePageState createState() => _HomePageState();
+}
+
+class _HomePageState extends State<HomePage> {
+  List list = new List();
+  @override
+  Widget build(BuildContext context) {
+    return ListView(
+      children: <Widget>[
+        Column(
+            children: this
+                .list
+                .map((value) => ListTile(
+                      title: Text(value),
+                    ))
+                .toList()),
+        SizedBox(
+          height: 20,
+        ),
+        RaisedButton(
+          child: Text('button'),
+          onPressed: () {
+            setState(() {
+              this.list.add('nihao1');
+              this.list.add('nihao2');
+            });
+          },
+        )
+      ],
+    );
+  }
+}
+
 class HomeContent extends StatelessWidget {
-  const HomeContent({Key key}) : super(key: key);
+  // const HomeContent({Key key}) : super(key: key);
+  int countNum = 1;
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      height: 600,
-      width: 400,
-      color: Colors.pink,
-      child: Wrap(
-        spacing: 10,
-        runSpacing: 10,
-        runAlignment: WrapAlignment.spaceAround,
-        direction: Axis.vertical,
-        children: <Widget>[
-          MyBtn('第一季adasd'),
-          MyBtn('第一季'),
-          MyBtn('第一季asdasdasda'),
-          MyBtn('第一季'),
-          MyBtn('第一季sda'),
-          MyBtn('第一季dasdas'),
-          MyBtn('第一季'),
-          MyBtn('第一dasdadas季'),
-          MyBtn('第一季'),
-          MyBtn('第一dsa季'),
-          MyBtn('第一dasdsadadas季'),
-          MyBtn('第一季'),
-          MyBtn('第一季'),
-          MyBtn('第一季'),
-        ],
-      ),
+    return Column(
+      children: <Widget>[
+        SizedBox(
+          height: 200,
+        ),
+        Text("${this.countNum}"),
+        SizedBox(
+          height: 20,
+        ),
+        RaisedButton(
+          child: Text('button'),
+          onPressed: () {
+            this.countNum++;
+            print(this.countNum);
+          },
+        )
+      ],
     );
+
+    // return Container(
+    //   height: 600,
+    //   width: 400,
+    //   color: Colors.pink,
+    //   child: Wrap(
+    //     spacing: 10,
+    //     runSpacing: 10,
+    //     runAlignment: WrapAlignment.spaceAround,
+    //     direction: Axis.vertical,
+    //     children: <Widget>[
+    //       MyBtn('第一季adasd'),
+    //       MyBtn('第一季'),
+    //       MyBtn('第一季asdasdasda'),
+    //       MyBtn('第一季'),
+    //       MyBtn('第一季sda'),
+    //       MyBtn('第一季dasdas'),
+    //       MyBtn('第一季'),
+    //       MyBtn('第一dasdadas季'),
+    //       MyBtn('第一季'),
+    //       MyBtn('第一dsa季'),
+    //       MyBtn('第一dasdsadadas季'),
+    //       MyBtn('第一季'),
+    //       MyBtn('第一季'),
+    //       MyBtn('第一季'),
+    //     ],
+    //   ),
+    // );
 
     // List<Widget> _getData() {
     //   return listData
