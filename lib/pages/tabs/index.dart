@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import './category/index.dart';
 import './home/index.dart';
 import './setbar/index.dart';
+import './message/index.dart';
+import './share/index.dart';
 
 class Tabs extends StatefulWidget {
   final index;
@@ -16,12 +18,34 @@ class _TabsState extends State<Tabs> {
   _TabsState(index) {
     this._currentIndex = index;
   }
-  List _pageList = [HomePage(), Category(), SetBar()];
+  List _pageList = [HomePage(), Message(), Category(), Share(), SetBar()];
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(title: Text('app-title')),
+      floatingActionButton: Container(
+          width: 80.0,
+          height: 80.0,
+          padding: EdgeInsets.all(8.0),
+          margin: EdgeInsets.only(top: 10.0),
+          decoration: BoxDecoration(
+              borderRadius: BorderRadius.circular(40.0), color: Colors.white),
+          child: FloatingActionButton(
+            onPressed: () {
+              setState(() {
+                this._currentIndex = 2;
+              });
+            },
+            child: Icon(
+              Icons.add,
+              color: Colors.black,
+              size: 40.0,
+            ),
+            backgroundColor:
+                this._currentIndex == 2 ? Colors.red : Colors.yellow,
+          )),
+      floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
       body: this._pageList[this._currentIndex],
       bottomNavigationBar: BottomNavigationBar(
           onTap: (int index) {
@@ -32,11 +56,15 @@ class _TabsState extends State<Tabs> {
           currentIndex: this._currentIndex,
           iconSize: 36.0,
           fixedColor: Colors.red,
-          // type: BottomNavigationBarType.fixed, // 配置多个
+          type: BottomNavigationBarType.fixed, // 配置多个
           items: [
             BottomNavigationBarItem(icon: Icon(Icons.home), title: Text("首页")),
             BottomNavigationBarItem(
+                icon: Icon(Icons.message), title: Text("消息")),
+            BottomNavigationBarItem(
                 icon: Icon(Icons.category), title: Text("分类")),
+            BottomNavigationBarItem(
+                icon: Icon(Icons.card_giftcard), title: Text("分享")),
             BottomNavigationBarItem(
                 icon: Icon(Icons.settings), title: Text("设置")),
             // BottomNavigationBarItem(

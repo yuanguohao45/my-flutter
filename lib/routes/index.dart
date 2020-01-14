@@ -21,12 +21,24 @@ import '../pages/tabBarControllar/index.dart';
 // 按钮演示
 import '../pages/button/index.dart';
 
+import '../pages/formPage/index.dart';
+import '../pages/checkBoxPage/index.dart';
+import '../pages/radioPage/index.dart';
+import '../pages/switchPage/index.dart';
+
+import '../pages/studentSys/index.dart';
+
 // 配置路由
 final routes = {
   '/': (context, {arguments}) => Tabs(),
   '/productList': (context, {arguments}) => ProductList(arguments: arguments),
   '/productInfo': (context, {arguments}) => ProductInfo(arguments: arguments),
-  '/formPage': (context, {arguments}) => FormPage(arguments: arguments),
+  // '/formPage': (context, {arguments}) => FormPage(arguments: arguments),
+  '/formPage': (context, {arguments}) => FormPage(),
+  '/checkBoxPage': (context, {arguments}) => CheckBoxPage(),
+  '/radioPage': (context, {arguments}) => RadioPage(),
+  '/switchPage': (context, {arguments}) => SwitchPage(),
+
   '/searchPage': (context, {arguments}) => SearchPage(arguments: arguments),
   '/userInfo': (context, {arguments}) => UserInfo(),
   '/login': (context, {arguments}) => Login(),
@@ -36,6 +48,8 @@ final routes = {
   '/appBarDemo': (context, {arguments}) => AppBarDemo(),
   '/tabBarControllar': (context, {arguments}) => TabBarControllar(),
   '/buttonPage': (context, {arguments}) => ButtonPage(),
+
+  '/studentSys': (context, {arguments}) => StudentSystem(),
 };
 
 // 路由传参
