@@ -10,6 +10,37 @@ class StudentSystem extends StatefulWidget {
 class _StudentSystemState extends State<StudentSystem> {
   String username;
   int sex = 1;
+  String info = '';
+  void _sexChange(v) {
+    setState(() {
+      this.sex = v;
+    });
+  }
+
+  List hobby = [
+    {"checked": true, "title": '吃饭'},
+    {"checked": true, "title": '睡觉'},
+    {"checked": true, "title": '写代码'},
+  ];
+  List<Widget> _getHobby() {
+    List<Widget> tempList = [];
+    for (var i = 0; i < this.hobby.length; i++) {
+      tempList.add(Row(
+        children: <Widget>[
+          Text(this.hobby[i]["title"] + ":"),
+          Checkbox(
+            onChanged: (v) {
+              setState(() {
+                this.hobby[i]["checked"] = v;
+              });
+            },
+            value: this.hobby[i]["checked"],
+          )
+        ],
+      ));
+    }
+    return tempList;
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -33,11 +64,7 @@ class _StudentSystemState extends State<StudentSystem> {
               children: <Widget>[
                 Text('男：'),
                 Radio(
-                  onChanged: (v) {
-                    setState(() {
-                      sex = v;
-                    });
-                  },
+                  onChanged: this._sexChange,
                   value: 1,
                   groupValue: this.sex,
                 ),
@@ -46,15 +73,44 @@ class _StudentSystemState extends State<StudentSystem> {
                 ),
                 Text('女：'),
                 Radio(
-                    value: 2,
-                    groupValue: this.sex,
-                    onChanged: (v) {
-                      setState(() {
-                        sex = v;
-                      });
-                    })
+                  value: 2,
+                  groupValue: this.sex,
+                  onChanged: this._sexChange,
+                )
               ],
-            )
+            ),
+            SizedBox(
+              height: 40.0,
+            ),
+            Column(
+              children: this._getHobby(),
+            ),
+            TextField(
+              maxLines: 4,
+              onChanged: (v) {
+                setState(() {
+                  this.info = v;
+                });
+              },
+              decoration: InputDecoration(
+                  hintText: "输入用户信息", border: OutlineInputBorder()),
+            ),
+            SizedBox(
+              height: 40.0,
+            ),
+            Container(
+              width: double.infinity,
+              height: 40.0,
+              child: RaisedButton(
+                child: Text('提交信息'),
+                onPressed: () {
+                  print(this.username);
+                  print(this.sex);
+                },
+                color: Colors.blue,
+                textColor: Colors.white,
+              ),
+            ),
           ],
         ),
       ),

@@ -77,34 +77,64 @@ class _HomePageState extends State<HomePage> {
         Center(
           child: Column(
             children: <Widget>[
+              // RaisedButton(
+              //   child: Text('跳转到表单页面'),
+              //   onPressed: () {
+              //     Navigator.pushNamed(context, '/formPage');
+              //   },
+              // ),
+              // RaisedButton(
+              //   child: Text('跳转到单选页面'),
+              //   onPressed: () {
+              //     Navigator.pushNamed(context, '/radioPage');
+              //   },
+              // ),
+              // RaisedButton(
+              //   child: Text('跳转到多选页面'),
+              //   onPressed: () {
+              //     Navigator.pushNamed(context, '/checkBoxPage');
+              //   },
+              // ),
+              // RaisedButton(
+              //   child: Text('跳转到开关页面'),
+              //   onPressed: () {
+              //     Navigator.pushNamed(context, '/switchPage');
+              //   },
+              // ),
+              // RaisedButton(
+              //   child: Text('学员登记系统'),
+              //   onPressed: () {
+              //     Navigator.pushNamed(context, '/studentSys');
+              //   },
+              // ),
+              // RaisedButton(
+              //   child: Text('官方日期部件'),
+              //   onPressed: () {
+              //     Navigator.pushNamed(context, '/officialDatePicker');
+              //   },
+              // ),
+              // RaisedButton(
+              //   child: Text('第三方部件'),
+              //   onPressed: () {
+              //     Navigator.pushNamed(context, '/otherDatePicker');
+              //   },
+              // ),
               RaisedButton(
-                child: Text('跳转到表单页面'),
+                child: Text('轮播图部件'),
                 onPressed: () {
-                  Navigator.pushNamed(context, '/formPage');
+                  Navigator.pushNamed(context, '/swiperPage');
                 },
               ),
               RaisedButton(
-                child: Text('跳转到单选页面'),
+                child: Text('弹框部件'),
                 onPressed: () {
-                  Navigator.pushNamed(context, '/radioPage');
+                  Navigator.pushNamed(context, '/dialogPage');
                 },
               ),
               RaisedButton(
-                child: Text('跳转到多选页面'),
+                child: Text('http请求部件'),
                 onPressed: () {
-                  Navigator.pushNamed(context, '/checkBoxPage');
-                },
-              ),
-              RaisedButton(
-                child: Text('跳转到开关页面'),
-                onPressed: () {
-                  Navigator.pushNamed(context, '/switchPage');
-                },
-              ),
-              RaisedButton(
-                child: Text('学员登记系统'),
-                onPressed: () {
-                  Navigator.pushNamed(context, '/studentSys');
+                  Navigator.pushNamed(context, '/httpRequestPage');
                 },
               ),
             ],

@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:my_flutter/pages/dialogPage/index.dart';
+import 'package:my_flutter/pages/httpRequestPage/index.dart';
 
 // 首页模块
 import '../pages/tabs/index.dart';
@@ -21,12 +23,18 @@ import '../pages/tabBarControllar/index.dart';
 // 按钮演示
 import '../pages/button/index.dart';
 
-import '../pages/formPage/index.dart';
+// import '../pages/formPage/index.dart';
 import '../pages/checkBoxPage/index.dart';
 import '../pages/radioPage/index.dart';
 import '../pages/switchPage/index.dart';
 
 import '../pages/studentSys/index.dart';
+
+// 日期部件
+import '../pages/datePicker/officialDatePicker/index.dart';
+import '../pages/datePicker/otherDatePicker/index.dart';
+
+import '../pages/swiperPage/index.dart';
 
 // 配置路由
 final routes = {
@@ -50,6 +58,12 @@ final routes = {
   '/buttonPage': (context, {arguments}) => ButtonPage(),
 
   '/studentSys': (context, {arguments}) => StudentSystem(),
+
+  '/officialDatePicker': (context, {arguments}) => OfficialDatePicker(),
+  '/otherDatePicker': (context, {arguments}) => OtherDatePicker(),
+  '/swiperPage': (context, {arguments}) => SwiperPage(),
+  '/dialogPage': (context, {arguments}) => DialogPage(),
+  '/httpRequestPage': (context, {arguments}) => HttpRequestPage(),
 };
 
 // 路由传参
