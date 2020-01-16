@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-// import '../../searchPage/index.dart';
+import '../../../components/classDialog/index.dart';
 
 class HomePage extends StatefulWidget {
   HomePage({Key key}) : super(key: key);
@@ -126,9 +126,18 @@ class _HomePageState extends State<HomePage> {
                 },
               ),
               RaisedButton(
-                child: Text('弹框部件'),
+                child: Text('系统弹框部件'),
                 onPressed: () {
                   Navigator.pushNamed(context, '/dialogPage');
+                },
+              ),
+              RaisedButton(
+                child: Text('自定义弹框部件'),
+                onPressed: () {
+                  showDialog(
+                      context: context,
+                      builder: (context) =>
+                          ClassDialog(title: '关于我们', content: '弹框内容'));
                 },
               ),
               RaisedButton(
